@@ -43,6 +43,8 @@ const ViewerMap: m.ClosureComponent<ViewerMapAttrs> = ({attrs: {visibleActs$, se
     //   625 - base map only_labels
     //   650 - tooltips
 
+    // Available layers: https://leaflet-extras.github.io/leaflet-providers/preview/
+
     // L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}' + ext, {
     //   zIndex: -100, pane: 'mapPane', attribution,
     // }).addTo(map);
