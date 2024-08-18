@@ -47,8 +47,8 @@ const ViewerTableRow: m.ClosureComponent<ViewerTableRowAttrs> = () => {
           ),
           m('.ViewerTableRow-date', dayjs(act.data.start_date).format('YYYY-MM-DD dd')),
           m('.ViewerTableRow-stat', formatDuration(act.data.moving_time)),
-          m('.ViewerTableRow-stat', (act.data.distance / 1609.34).toFixed(1), m('.ViewerTableRow-unit', 'mi')),
-          m('.ViewerTableRow-stat', (act.data.total_elevation_gain * 3.28084).toFixed(0), m('.ViewerTableRow-unit', 'ft')),
+          m('.ViewerTableRow-stat', (act.data.distance / 1000).toFixed(1), m('.ViewerTableRow-unit', 'km')),
+          m('.ViewerTableRow-stat', (act.data.total_elevation_gain).toFixed(0), m('.ViewerTableRow-unit', 'm')),
           m('a.ViewerTableRow-strava-link', {
               href: `https://www.strava.com/activities/${act.data.id}`,
               onclick: (ev: Event) => ev.stopPropagation(),
