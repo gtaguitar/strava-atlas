@@ -33,7 +33,7 @@ const ViewerMap: m.ClosureComponent<ViewerMapAttrs> = ({attrs: {visibleActs$, se
     // LAYERS
     // ******
 
-    const attribution = '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/about-carto/">CARTO</a>';
+    const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
     const ext = L.Browser.retina ? '@2x.png' : '.png';
 
     // zIndex values:
@@ -43,12 +43,16 @@ const ViewerMap: m.ClosureComponent<ViewerMapAttrs> = ({attrs: {visibleActs$, se
     //   625 - base map only_labels
     //   650 - tooltips
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}' + ext, {
-      zIndex: -100, pane: 'mapPane', attribution,
-    }).addTo(map);
+    // L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}' + ext, {
+    //   zIndex: -100, pane: 'mapPane', attribution,
+    // }).addTo(map);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}' + ext, {
-      zIndex: 625, pane: 'mapPane', attribution,
+    // L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}' + ext, {
+    //   zIndex: 625, pane: 'mapPane', attribution,
+    // }).addTo(map);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      zIndex: -100, pane: 'mapPane', attribution,
     }).addTo(map);
 
     pathsLayer({visibleActs$, selectedActId$, hoveredActIds$}).addTo(map);
